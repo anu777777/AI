@@ -1,0 +1,33 @@
+Frame based knowledge representation
+
+class Frame:
+    def __init__(self, name, slots):
+        self.name = name
+        self.slots = slots
+    
+    def get_slot_value(self, slot_name):
+        if slot_name in self.slots:
+            return self.slots[slot_name]
+        else:
+            return None
+    
+    def set_slot_value(self, slot_name, value):
+        self.slots[slot_name] = value
+
+# example frames
+person_frame = Frame("Person", {"name": "John", "age": 30, "gender": "male"})
+car_frame = Frame("Car", {"make": "Toyota", "model": "Camry", "year": 2018})
+
+# accessing slot values
+print(person_frame.get_slot_value("name"))  # outputs "John"
+print(car_frame.get_slot_value("year"))  # outputs 2018
+
+# modifying slot values
+person_frame.set_slot_value("age", 40)
+print(person_frame.get_slot_value("age"))  # outputs 40
+
+
+In this example, Frame is a class that represents a frame or a concept in the knowledge base. 
+A frame has a name and a set of slots, where each slot has a name and a value. 
+The get_slot_value method returns the value of a given slot name, and the set_slot_value method sets the value of a given slot name. 
+The example frames person_frame and car_frame represent a person and a car, respectively, and demonstrate how slots can be accessed and modified.
